@@ -118,7 +118,7 @@ begin
         result := TJSONObject.Create;
         if parser.FloatType = #0 then
            TJSONObject(result).AddPair('$float', TJSONNull.Create) //null
-        else TJSONObject(result).AddPair('$float', TJsonNumber(Parser.FloatType));
+        else TJSONObject(result).AddPair('$float', TJsonNumber.Create(Parser.FloatType));
         TJSONObject(result).AddPair('value', TJsonNumber.Create(Parser.TokenFloat));
       end;
       '[':
