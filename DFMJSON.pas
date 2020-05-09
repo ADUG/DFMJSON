@@ -1,9 +1,12 @@
 unit DFMJSON;
 
 interface
+
 uses
-   System.Classes,
-   System.JSON;
+    System.Classes
+  , System.JSON
+  , System.Generics.Collections
+  ;
 
 function Dfm2JSON(dfm: TStream): TJSONObject; overload;
 function Dfm2JSON(const filename: string): TJSONObject; overload;
@@ -442,7 +445,7 @@ var
   lines: TArray<string>;
   i: integer;
 begin
-  lines := value.Split(separators, None);
+  lines := value.Split(separators, TStringSplitOptions.None);
   for i := 0 to high(lines) do
     if lines[i] <> '' then
       lines[i] := QuotedStr(lines[i]);
